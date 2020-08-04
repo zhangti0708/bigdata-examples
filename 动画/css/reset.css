@@ -1,0 +1,151 @@
+/* 设置需要的标签内边距和外边距为0，仅添加需要的标签，不建议使用星号（*）代替，以下为示例 */
+* { margin: 0; padding: 0;  outline: none; font-family:"Microsoft YaHei", "SimSun";}
+
+body{
+    -webkit-overflow-scrolling:touch;/*流畅滚动*/
+}
+
+a,button,input,optgroup,select,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+}
+
+/*禁止FF等浏览器给textarea增加可拖拽大小的设置*/
+textarea { resize: none; }
+
+/*图片无边框*/
+img { border: none; }
+.imgwrap img { width: 100%; }
+
+/* 清除列表样式设置，以下为示例，仅写你用到的标签 */
+ul , li{ list-style: none; }
+
+/*文字对齐*/
+.align_left { text-align: left; }
+.align_center { text-align: center; }
+.align_right { text-align: right; }
+
+/* 设置链接默认样式，默认颜色和鼠标移入颜色根据实际需求自行更改 */
+a{text-decoration:none;color:#4a4a4a;
+	transition:color 0.2s;
+	-webkit-transition: color 0.2s;
+	-moz-transition: color 0.2s;
+	-ms-transition: color 0.2s;
+	-o-transition: color 0.2s;
+}
+a:hover{color:#FF5926;}
+
+/*清除浮动 两种方式根据具体需求自选*/
+.cf:before, .cf:after { content:"";  display:table;  }
+.cf:after {  clear:both;  }  
+.cf { zoom:1;  } /*方式1*/
+.of { overflow:hidden; }/*方式2*/
+
+/*表格边框合并*/
+table{border-collapse:collapse;}
+
+/*动画*/
+.animate{
+transition:all 0.3s;
+-webkit-transition:all 0.3s;
+-moz-transition:all 0.3s;
+-ms-transition:all 0.3s;
+-o-transition:all 0.3s;
+}
+
+/*浮动*/
+.f_left{float:left;}
+.f_right{float:right;}
+
+/*强制换行*/
+.break_word{word-wrap:break-word;word-break:break-all;}
+/*文字强制不断行*/
+.hehe{white-space:nowrap;}
+
+/*禁止换行*/
+.keep_all{word-break:keep-all;white-space:nowrap;}
+
+/*超出省略号，仅限单行，并且需要设定一个宽度*/
+.ellipsis { overflow: hidden; text-overflow: ellipsis; display: block; white-space: nowrap }
+
+/*段落两端对齐*/
+.case_intro , .txt_justify{text-align:justify;text-justify:inter-ideograph}
+
+/*两端对齐 若单行，至少要3个字符，只有两个字符的，中间补一个空格*/
+.text_justify {
+	text-align: justify; text-justify: distribute-all-lines;/*ie6-8*/ 
+	text-align-last: justify;/* ie9*/ 
+	-moz-text-align-last: justify;/*ff*/ 
+	-webkit-text-align-last: justify;/*chrome 20+*/ }
+	@media screen and (-webkit-min-device-pixel-ratio:0) {/* chrome*/
+	.aaa:after { content: "."; display: inline-block; width: 100%; overflow: hidden; height: 0; }
+}
+
+/*修复火狐按钮文字不垂直居中的bug*/
+input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner {
+	border:none;
+	padding:0;
+}
+
+.hide{display:none;}
+/*常用边距*/
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb20{margin-bottom:20px;}
+.mb30{margin-bottom:30px;}
+.mb40{margin-bottom:40px;}
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml20{margin-left:20px;}
+.ml30{margin-left:30px;}
+.ml40{margin-left:40px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr20{margin-right:20px;}
+.mr30{margin-right:30px;}
+.mr40{margin-right:40px;}
+
+/*在线QQ*/
+.content_qq{position:fixed;right:1px;top:30%;text-align:center;z-index:9;}
+.container_qq{border:1px solid #000;width:120px;background:#fff;right:0px;}
+.qq_title{position:relative;color:#fff;background:#000;text-align:center;height:35px;line-height:35px;font-size:16px;margin-bottom:10px;}
+.btn_qqclose{cursor:pointer;position:absolute;right:0px;display:block;top:0px;font-size:12px;width:24px;height:24px;background-image:url(../images/bg_close.png);background-repeat:no-repeat;background-position:left top;z-index:1;overflow:hidden;}
+.btn_qqopen{background-position:left bottom;}
+.qqzaixian{background:url(../images/qqzaixian.png) center center no-repeat;width:77px;height:22px;line-height:22px;display:inline-block;width:77px;color:#000;font-size:12px;text-indent:15px;}
+.qqzaixian:hover{color:#515151;}
+.qqserver p{padding-bottom:10px;}
+.phoneserver{margin:0 5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:10px;}
+.phoneserver h5{color:#515151;height:25px;line-height:25px;}
+.phoneserver p{font-size:12px;color:#515151;line-height:20px;height:20px;}
+.slide_erweima{margin:5px;width:110px;height:110px;}
+.slide_erweima img{width:100%;}
+.container_zhankai{width:1em;color:#fff;background:#000;padding: 15px 10px 5px;cursor:pointer;position:relative;position:absolute;top:0px;}
+.openqq .container_qq{right:-122px;}
+.openqq .container_zhankai{right:0px;}
+.container_zhankai{right:-50px;}
+
+/*分页*/
+.fenye {margin:10px 0;}
+.fenye a{height:30px;line-height:30px;border:1px solid #d3d3d3;display:inline-block;font-size:12px;color:#3c3c3c;padding:0 11px;border-radius:2px;overflow:hidden;background-color: #f8f8f8;
+transition:all 0.3s;
+-webkit-transition:all 0.3s;
+-moz-transition:all 0.3s;
+-ms-transition:all 0.3s;
+-o-transition:all 0.3s;}
+.fenye a:hover , .fenye .focus{border:1px solid #449cdd;color:#fff;background-color: #5fb9fa;}
+.fenye .prevpage , .fenye .nextpage{background-image:url(../images/bg_pagearrow.png);background-position: 5px center ;background-repeat:no-repeat;width:30px;padding:0;text-indent:100px;}
+.fenye .prevpage:hover{background-position:-16px center;}
+.fenye .nextpage{background-position:-60px center;}
+.fenye .nextpage:hover{background-position:-39px center;}
+
+/*布局框架*/
+.m_center{margin:0 auto;}
+.container{position:relative;}
+.container_full{width:100%;}
+.container_half{width:50%;}
+.container_1000{width:1000px;}
+
+/*表单元素*/
+

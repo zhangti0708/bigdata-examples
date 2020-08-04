@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="zh-cn" />
+    <title></title>
+    <meta name="keywords" content=" " />
+	<style>
+			 *{margin:0px;padding:0px;list-style-type:none;}
+			.v_out{width:100%;margin:0 auto;overflow:hidden;}
+			.v_show{width:100%;overflow:hidden;position:relative;
+				height: 100%;float:left}
+			.v_cont{ width:100%;position:absolute;left:0px;top:0px;}
+			.v_cont ul{float:left;text-align:center;line-height:0px;width: 100%}
+			.v_cont ul li{width:100%;height:100%;background:#f8f8f8;float:left;margin-top:3px;}
+			 /*---圆圈---*/
+			.v_out_p{position:relative;overflow:visible}
+			 /*---切换---*/
+			.prev{
+				position:absolute;
+				left: 1%;
+				width: 49px;
+				/*top: 300px;*/
+
+				z-index: 100;
+
+
+			}
+			.next{
+				position:absolute;
+				right: 1%;
+				width: 49px;
+				height:139px;
+				top: 300px ;
+
+
+			}
+			.prev a{display: none;width:80px;display:block; }
+			.prev .ico_1{ background:url(input_a.gif) no-repeat 0 -3757px;}
+
+			.next a{display: none;width:80px;display:block; }
+			.next .ico_2{background:url(input_a.gif) no-repeat right -3757px;}
+			.prev,.next{width:80px;height:1080px; display:block}
+		.hideind{ opacity: 0;}
+		.hideinds{opacity: 1;}
+		.functshow{ position: absolute; top:300px;}
+	</style>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    
+
+    <script type="text/javascript">
+        function init() { 
+			  $(".v_cont ul li").css('height', document.documentElement.clientHeight);
+                $(".v_show").css('height', document.documentElement.clientHeight);
+            window.onresize = function () { 
+                $(".v_cont ul li").css('height', document.documentElement.clientHeight);
+                $(".v_show").css('height', document.documentElement.clientHeight);
+            }
+        }
+
+    </script>
+
+</head>
+
+<body onload="init()">
+
+<div class="v_out v_out_p">
+
+	    <!--<div class="prev hideind"><a href="javascript:void(0)"><img class="functshow" src="../img/pre.png"/> </a></div>-->
+
+	    <div class="v_show">
+
+				<div class="v_cont">
+						<ul> 
+
+						<li index="2" style="background:#999"><iframe src="Datacages_Homeindex.html" style="width:100%;height:100%;"></iframe></li>
+
+						</ul>
+				</div>
+		   
+		</div>
+		
+		<!--<div class="next hideind"><a href="javascript:void(0)"><img src="../img/next.png"/> </a> </div>-->
+
+	<script type="text/javascript">
+
+             $(function(){
+
+                    /*======next======*/
+                    $(".next a").click(function(){ nextscroll() });
+
+                    function nextscroll(){
+
+	                        var vcon = $(".v_cont ");
+	                        var offset = ($(".v_cont li").width())*-1;
+
+	                        vcon.stop().animate({left:offset},"slow",function(){
+
+	                             var firstItem = $(".v_cont ul li").first();
+	                             vcon.find("ul").append(firstItem);
+	                             $(this).css("left","0px");
+
+	                        });
+
+                    };
+
+
+
+
+                    //setInterval(nextscroll,2000)
+
+                    /*======prev======*/
+				 $(".prev a").click(function(){ nextscroll() });
+
+				 function nextscroll(){
+
+					 var vcon = $(".v_cont ");
+					 var offset = ($(".v_cont li").width())*-1;
+
+					 vcon.stop().animate({left:offset},"slow",function(){
+
+						 var firstItem = $(".v_cont ul li").first();
+						 vcon.find("ul").append(firstItem);
+						 $(this).css("left","0px");
+
+					 });
+
+				 };
+
+                   /*======btn====circle======*/
+                     var animateEnd = 1;
+
+
+
+             })
+		$(".prev a ,.next a").hover(function(){
+			$(this).show();
+		})
+	  $(".hideind").mouseenter(function(){
+		  $(".hideind").addClass("hideinds");
+	  }).mouseleave(function(){
+		  $(".hideind").removeClass("hideinds");
+	  })
+
+
+	</script>
+
+
+   
+
+</div>
+   
+</body>
+</html>

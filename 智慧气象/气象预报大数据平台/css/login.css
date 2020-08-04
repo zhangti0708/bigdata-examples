@@ -1,0 +1,142 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url("../img/loginbg.png") no-repeat center;
+    background-size: cover;
+}
+.content{
+    width: 845px;
+    height: 260px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    margin-top: -125px;
+    background: url("../img/login0.png") no-repeat center;
+}
+.left,.middle,.right{
+    width: 33%;
+    float: left;
+    color: #B0CC35;
+    text-align: center;
+}
+.left{
+    margin-left: 1%;
+    margin-top: 13px;
+}
+.left p{
+    font-size: 18px;
+}
+.middle{
+    margin-top: 80px;
+}
+.middle .login{
+    width: 280px;
+    height: 40px;
+    margin-bottom: 30px;
+    background: url("../img/login1.png") no-repeat center;
+}
+.middle .login input{
+    height: 38px;
+    border: none;
+    background: none !important;
+    outline: none;
+    color: #B0CC35;
+}
+.right{
+    margin-top: 50px;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 88px;
+    padding-left: 156px;
+}
+.btn0{
+    position: absolute;
+    width: 78px;
+    height: 78px;
+    background: url("../img/close0.png") no-repeat;
+    background-size: 100%;
+    animation: clockwise 3s linear infinite;
+}
+.btn1{
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    margin: 13px;
+    background: url("../img/close1.png") no-repeat;
+    background-size: 100%;
+}
+.btn2{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 24px;
+    background: url("../img/close2.png") no-repeat;
+    background-size: 100%;
+    animation: anticlockwise 3s linear infinite;
+}
+@keyframes clockwise {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(-360deg);
+    }
+}
+@keyframes anticlockwise {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+#earth{
+    width: 150px;
+    height: 150px;
+    margin-left: 60px;
+}
+.warning{
+    width: 595px;
+    height: 100px;
+    background: url("../img/login2.png") no-repeat center;
+    margin: 0 auto;
+    position: relative;
+    color:red;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+.warning span{
+    animation: 1s bounceIn;
+    font-size: 50px;
+    display: block;
+    position: absolute;
+    left: 8%;
+    margin-top: -5px;
+}
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+.bounceIn{
+    animation: 500ms bounceIn;
+}
+#btn{
+    width: 78px;
+    height: 78px;
+    cursor: pointer;
+}

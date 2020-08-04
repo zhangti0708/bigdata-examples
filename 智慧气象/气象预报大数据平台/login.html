@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Station</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="left">
+            <p>WEATHER STATION</p>
+            <div id="earth"></div>
+        </div>
+        <div class="middle">
+            <form id="myform">
+                <div class="login">
+                    <input type="text" placeholder="请输入登录名" id="account" />
+                </div>
+                <div class="login">
+                    <input type="password" placeholder="请输入密码" id="password" />
+                </div>
+            </form>
+
+        </div>
+        <div class="right">
+            <div id="btn" title="Login">
+                <div class="btn0"></div>
+                <div class="btn1"></div>
+                <div class="btn2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="warning" style="display: none;">
+        <span>×</span>PASSWORD ERROR, PLEASE RE-ENTER PASSWORD
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/echarts-gl.min.js"></script>
+    <script src="js/world.js"></script>
+    <script>
+        var earth = echarts.init(document.getElementById('earth'));
+        //自制纹理贴图
+        var canvas = document.createElement('canvas');
+        var mapChart = echarts.init(canvas, null, {
+            width: 4096, height: 2048
+        });
+        mapChart.setOption({
+            backgroundColor: 'rgba(64,75,93,.1)',
+            series: [
+                {
+                    type: 'map',
+                    map: 'world',
+                    // 绘制完整尺寸的 echarts 实例
+                    top: 0, left: 0,
+                    right: 0, bottom: 0,
+                    boundingCoords: [[-180, 90], [180, -90]],
+                    itemStyle: {
+                        normal: {
+                            areaColor: 'rgba(176,203,37,1)',
+                            borderColor: 'rgb(0,0,0)'
+                        },
+                        emphasis: {
+                            areaColor: 'rgba(176,203,37,1)'
+                        }
+                    }
+                }
+            ]
+        });
+        var option = {
+            globe: {
+                baseTexture: mapChart,
+                viewControl: {
+                    rotateSensitivity: 0,
+                    panSensitivity: 0,
+                    zoomSensitivity: 0
+                }
+            }
+        };
+        earth.setOption(option);
+        //登录
+        $('#btn').on('click', function () {
+            var account = $('#account').val();
+            var password = $('#password').val();
+            if (account == '' || password == '') {
+                //alert('用户名或密码不能为空！');
+                $('.warning').show().addClass('bounceIn');
+                return
+            }
+            if(account==='1234567'&&password==='1234567'){
+                window.location.href="bigdata.html";
+            }
+            /* $.ajax({
+                url: '@Url.Action("Login")',
+                type: 'post',
+                data: { account: account, password: password },
+                success: function (result) {
+                    result = handleError(result);
+                    if (!result.IsError) {
+                        window.location = '@Url.Action("Index", "Home")';
+                    }
+                }
+            }) */
+        })
+    </script>
+</body>
+
+</html>
